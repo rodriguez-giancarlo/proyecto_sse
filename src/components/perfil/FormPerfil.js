@@ -56,6 +56,7 @@ const FormDatUsuario = ({
                     name="fechanacimiento" 
                     id="input-fecha-nacimiento"
                     onChange={onChange}    
+                    dateFormat="dd-MM-yyyy"
                     value={usuario.fechaNacimiento}
                 />            
             </FormGroup>

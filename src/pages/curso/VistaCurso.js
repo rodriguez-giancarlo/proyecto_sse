@@ -25,13 +25,13 @@ const VistaCurso = (props) => {
     }, []);
     const ListarUnidadCurso=()=>{
         axios.get('http://localhost:4000/unidad/'+props.match.params.idcurso).
-         then((response)=>{
-             setListaUnidad(response.data);
-         })
-     };
-     let numero=0
+            then((response)=>{
+                setListaUnidad(response.data);
+        })
+    };
+    let numero=0
     // tema-cargardatos
-     const [ListarTemas, setListarTemas] = useState([])
+    const [ListarTemas, setListarTemas] = useState([])
     useEffect(() => {
         ListarTemasCurso()
     }, []);

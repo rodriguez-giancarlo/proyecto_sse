@@ -15,9 +15,10 @@ const FormLogin = (props) =>{
             localStorage.nombre = nombre +' '+apellido;          
             localStorage.foto = urlFoto;
             axios.get(`http://localhost:4000/persona/buscar/${email}`)
-            .then((resp)=>{                
-                // console.log(resp.data);                     
+            .then((resp)=>{                                
                 if(resp.data[0]!=undefined){
+                    localStorage.idpersona = resp.data[0].idpersona 
+                    console.log(localStorage.idpersona)
                     history.push("/principal")
         }else{
             if(resp.data[0] == undefined){                

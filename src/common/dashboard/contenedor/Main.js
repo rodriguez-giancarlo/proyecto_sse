@@ -5,7 +5,7 @@ import VistaCurso from '../../../pages/curso/VistaCurso'
 import Home from '../../../pages/home/Home'
 import Perfil from '../../../pages/perfil/Perfil'
 const Main = () => {
-    localStorage.idpersona = 25
+    // localStorage.idpersona = 25
     return (
         <div className="main__contenedor">
             <Route path="/principal/my" exact={true} component={Home}/>

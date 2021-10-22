@@ -55,8 +55,8 @@ const ListaCurso = () => {
             console.log('campo llenos');
             try {
                     Curso.clave=md5(idpersona+Curso.nombre)
-                    // const nuevoCurso = await axios.post('http://localhost:4000/curso/save', Curso);
-                    // console.log(nuevoCurso);
+                    const nuevoCurso = await axios.post('http://localhost:4000/curso/save', Curso);
+                    console.log(nuevoCurso);
                     toggleCrear()
                     console.log('guardado');
                     Curso.nombre=''
@@ -113,14 +113,14 @@ const ListaCurso = () => {
                                 axios.get(`http://localhost:4000/matricula/buscar/`+ idpersona+'/'+resp.data[0].idCurso).
                                 then((sql)=>{
                                     if(sql.data[0]===undefined){
-                                        // axios.post('http://localhost:4000/matricula/save',
-                                        // {
-                                        //     descripcion:'',
-                                        //     idpersona:idpersona,
-                                        //     idcurso:resp.data[0].idCurso,
-                                        //     vigencia:2
-                                        // })
-                                        // ListaCursosMatriculados()
+                                        axios.post('http://localhost:4000/matricula/save',
+                                        {
+                                            descripcion:'',
+                                            idpersona:idpersona,
+                                            idcurso:resp.data[0].idCurso,
+                                            vigencia:2
+                                        })
+                                        ListaCursosMatriculados()
                                         toggleUnir()    
                                         console.log('te puedes matricular');
                                     }else{
@@ -156,14 +156,14 @@ const ListaCurso = () => {
                     setValidated={setValidated}
                 />
                 <FormUnirCurso
-                     toggleUnir={toggleUnir} 
-                     modalUnir={modalUnir}
-                     claveVerificacion={claveVerificacion}
-                     onChange={handleChangecodigo}
-                     onClick={buscarCurso}
-                     validated={validatedcodigo}
-                     setValidated={setValidatedcodigo}
-                     error={error}
+                    toggleUnir={toggleUnir} 
+                    modalUnir={modalUnir}
+                    claveVerificacion={claveVerificacion}
+                    onChange={handleChangecodigo}
+                    onClick={buscarCurso}
+                    validated={validatedcodigo}
+                    setValidated={setValidatedcodigo}
+                    error={error}
                 />
                 <TablaCurso
                     ListaCursosMatriculados={ListaCursosMatriculados}
