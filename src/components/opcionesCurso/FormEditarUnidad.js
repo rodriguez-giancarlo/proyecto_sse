@@ -19,7 +19,7 @@ const FormEditarUnidad = (props) => {
                                 required
                             /> 
                             <Form.Control.Feedback type="invalid">
-                                campo de nombre esta vacio
+                                Campo de nombre esta vacío.
                             </Form.Control.Feedback>            
                         </Form.Group> 
                         <Form.Group>
@@ -32,7 +32,7 @@ const FormEditarUnidad = (props) => {
                                 required
                             />
                              <Form.Control.Feedback type="invalid">
-                                campo de descripcion esta vacio
+                                Campo de descripcion esta vacío.
                             </Form.Control.Feedback>  
                         </Form.Group>
                     </Form>

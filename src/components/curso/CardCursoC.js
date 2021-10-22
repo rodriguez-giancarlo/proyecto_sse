@@ -7,21 +7,21 @@ const CardCursoC = (props) => {
     return (
         <Card className="text-center shadow-card h-100" key={props.idCurso}>
             <Card.Body>
-                <Card.Title >
-                    Curso {props.idCurso}: {props.nombre}
-                </Card.Title>
-                <Form>
+            <Form>
                     <Form.Check 
                     type="switch"
                     id={"custom-switch"+props.idCurso}
-                    label="publicar"
+                    label="Publicar"
                     />
                 </Form>
+                <Card.Title >
+                    {props.nombre}
+                </Card.Title>                
                 <Card.Text>
                     {props.descripcion}
                 </Card.Text>
                 <Card.Title>
-                    Clave:
+                    Código de Curso
                 </Card.Title>
                 <Card.Text>
                     {props.clave}
@@ -33,7 +33,7 @@ const CardCursoC = (props) => {
             </Card.Body>
             <Card.Footer>
             <Link to={`${props.url}${props.idCurso}`} exact={`exact`}>
-                ir al curso
+                Ir al curso
             </Link>
             </Card.Footer>
         </Card>

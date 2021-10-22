@@ -7,7 +7,7 @@ const FormEditarTema = (props) => {
         <>
             <Modal show={modalTema} onHide={toggleTema} centered>
                 <Modal.Header closeButton className="text-center">
-                    editar Tema
+                    Editar Tema
                 </Modal.Header>
                 <Modal.Body>                    
                    <Form>
@@ -25,7 +25,7 @@ const FormEditarTema = (props) => {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button block className="celeste" onClick={editarTema} >
-                        editar Tema
+                        Editar Tema
                     </Button>   
                 </Modal.Footer>
             </Modal>   

@@ -3,7 +3,7 @@ import React from 'react'
 const Home = () => {
     return (
         <div>
-            bienidos a al Sistema de Seguimiento Estidiantil
+            Bienvenidos al Sistema de Seguimiento al Estudiante.
         </div>
     )
 }

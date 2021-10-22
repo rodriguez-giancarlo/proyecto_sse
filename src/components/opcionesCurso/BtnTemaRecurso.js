@@ -11,7 +11,7 @@ const BtnTemaRecurso = (props) => {
             </Dropdown.Toggle>
             <Dropdown.Menu  className="center shadow-card">
                 <Dropdown.Item onClick={toggleTema}>
-                    editar Tema
+                    Editar Tema
                 </Dropdown.Item>
                 <Dropdown.Item>
                     Crear Recurso

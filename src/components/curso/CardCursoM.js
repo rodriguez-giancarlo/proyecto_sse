@@ -8,7 +8,7 @@ const CardCursoM = (props) => {
      <React.Fragment>
          <Card className="text-center shadow-card h-100"  key={props.idCurso}>
             <Card.Body>
-            <Card.Title>Curso{props.idCurso}: {props.nombre}</Card.Title>
+            <Card.Title>{props.nombre}</Card.Title>
             
             <Card.Text>
             {props.descripcion}
@@ -22,7 +22,7 @@ const CardCursoM = (props) => {
             
             <Card.Footer>
             <Link to={`${props.url}${props.idCurso}`} exact={`exact`}>
-            ir al curso
+            Ir al curso
             </Link>
             {/* ir al Curso */}
             </Card.Footer>

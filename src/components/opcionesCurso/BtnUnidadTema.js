@@ -11,7 +11,7 @@ const BtnUnidadTema = (props) => {
             </Dropdown.Toggle>
             <Dropdown.Menu  className="center shadow-card">
                 <Dropdown.Item onClick={toggleUnidad}>
-                    editar unidad
+                    Editar unidad
                 </Dropdown.Item>
                 <Dropdown.Item onClick={toggleTema}>
                     Crear tema

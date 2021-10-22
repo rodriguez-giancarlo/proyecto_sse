@@ -19,7 +19,7 @@ const FormCrearUnidad = (props) => {
                                 required
                             /> 
                             <Form.Control.Feedback type="invalid">
-                                campo de nombre esta vacio
+                                Campo de nombre esta vacío.
                             </Form.Control.Feedback>            
                         </Form.Group> 
                         <Form.Group>
@@ -31,8 +31,8 @@ const FormCrearUnidad = (props) => {
                                 onChange={onChange}
                                 required
                             />
-                             <Form.Control.Feedback type="invalid">
-                                campo de descripcion esta vacio
+                            <Form.Control.Feedback type="invalid">
+                                Campo de descripcion esta vacío.
                             </Form.Control.Feedback>  
                         </Form.Group>
                     </Form>

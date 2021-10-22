@@ -4,14 +4,13 @@ import FormPerfil from '../../components/perfil/FormPerfil'
 
 const PagDatUsuario = () => {
         const [usuario, setUsuario] = useState({})
-
         const googleId  = localStorage.googleId
-
+        // const idpersona = localStorage.idpersona
+        // console.log(idpersona)
         const buscarUsuario = () => {
             axios.get(`http://localhost:4000/persona/buscarId/${googleId}`).then((resp)=>{                
             const datos = resp.data
-                setUsuario(datos[0])   
-                console.log()                           
+                setUsuario(datos[0])  
             })
         }
         

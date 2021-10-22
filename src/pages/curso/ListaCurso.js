@@ -7,8 +7,7 @@ import md5 from 'md5';
 import FormUnirCurso from '../../components/curso/FormUnirCurso';
 
 const ListaCurso = () => {
-    const idpersona=localStorage.idpersona
-
+    const idpersona = localStorage.idpersona
     const [ListaCursos, setListaCursos] = useState([])
     const [ListaCursosMatriculados, setListaCursosMatriculados] = useState([])
     useEffect(() => {
