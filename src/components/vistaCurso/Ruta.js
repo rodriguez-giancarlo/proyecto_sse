@@ -6,7 +6,7 @@ const Ruta = (props) => {
         <React.Fragment>
             <Breadcrumb>
                 <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                <Breadcrumb.Item href="/curso">curso</Breadcrumb.Item>
+                <Breadcrumb.Item href="/curso">Curso</Breadcrumb.Item>
                 <Breadcrumb.Item active>{props.idcurso}</Breadcrumb.Item>
             </Breadcrumb>
         </React.Fragment>

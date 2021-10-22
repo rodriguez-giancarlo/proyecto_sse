@@ -19,12 +19,12 @@ const VistaCurso = (props) => {
         })
     }
      //unidad-cargarDatos
-     const [ListaUnidad, setListaUnidad] = useState([])
-     useEffect(() => {
-         ListarUnidadCurso()
-     }, []);
-     const ListarUnidadCurso=()=>{
-         axios.get('http://localhost:4000/unidad/'+props.match.params.idcurso).
+    const [ListaUnidad, setListaUnidad] = useState([])
+    useEffect(() => {
+        ListarUnidadCurso()
+    }, []);
+    const ListarUnidadCurso=()=>{
+        axios.get('http://localhost:4000/unidad/'+props.match.params.idcurso).
          then((response)=>{
              setListaUnidad(response.data);
          })
@@ -52,7 +52,7 @@ const VistaCurso = (props) => {
                     {infoCurso.map((val)=>{
                         return(
                             <>
-                                <p className="nombre-curso">Curso :{val.nombre}</p>
+                                <p className="nombre-curso">Curso: {val.nombre}</p>
                                 {localStorage.idpersona===val.idpersona?
                                     <CrearUnidad 
                                         idCurso={val.idCurso}
@@ -75,14 +75,14 @@ const VistaCurso = (props) => {
                             <UnidadTema/>
                             </div>
                             {ListarTemas.map((valTema)=>{
-                                 if(valUnidad.idUnidad===valTema.idUnidad){
+                                if(valUnidad.idUnidad===valTema.idUnidad){
                                     return(
-                                       <div className="tema">
+                                        <div className="tema">
                                             <Tema
                                                 nombre={valTema.nombre}
                                             />
                                             <TemaRecurso/>
-                                       </div>
+                                        </div>
                                     )
                                 }
                             })}

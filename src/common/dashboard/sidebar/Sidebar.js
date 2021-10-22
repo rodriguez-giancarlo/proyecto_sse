@@ -36,13 +36,13 @@ const Sidebar = () => {
                     <li>
                         <NavLink to="/principal/estadistica" exact activeClassName="active">
                             <span><FcStatistics/></span>
-                            <span>Estadisticas</span>
+                            <span>Estadísticas</span>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink to="/principal/1" exact activeClassName="active">
                             <span><FcIdea/></span>
-                            <span>ayuda</span>
+                            <span>Ayuda</span>
                         </NavLink>
                     </li>
                     <li>
