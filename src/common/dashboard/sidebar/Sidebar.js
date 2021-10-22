@@ -18,23 +18,23 @@ const Sidebar = () => {
             <div className="sidebar__contenedor-menu">
                 <ul>
                     <li>
-                        <NavLink to="/my" activeClassName="active">
+                        <NavLink to="/principal/my" activeClassName="active">
                         <span><FcPackage/></span>
                         <span>Inicio</span></NavLink>
                     </li>
                     <li>
-                        <NavLink to="/login" exact activeClassName="active">
+                        <NavLink to="/principal/perfil" exact activeClassName="active">
                         <span><FcPortraitMode/></span>
                         <span>Perfil</span></NavLink>
                     </li>
                     <li>
-                        <NavLink to="/curso"  exact activeClassName="active">
+                        <NavLink to="/principal/curso"  exact activeClassName="active">
                             <span><FcPackage/></span>
                             <span>Mis Cursos</span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/principal/3" exact activeClassName="active">
+                        <NavLink to="/principal/estadistica" exact activeClassName="active">
                             <span><FcStatistics/></span>
                             <span>Estadisticas</span>
                         </NavLink>

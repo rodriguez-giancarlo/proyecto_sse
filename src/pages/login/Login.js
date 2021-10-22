@@ -1,10 +1,12 @@
 import React from 'react'
+import './Estilo.css'
+import FormLogin from '../../components/login/FormLogin'
 
 const Login = () => {
     return (
-        <div>
-            Pagina de Login
-        </div>
+        <>
+            <FormLogin></FormLogin>
+        </>
     )
 }
 

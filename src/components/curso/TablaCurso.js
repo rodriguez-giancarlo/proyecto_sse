@@ -22,7 +22,7 @@ const TablaCurso = (props) => {
                         idCurso={val.idCurso}
                         nombre={val.nombre} 
                         descripcion={val.descripcion} 
-                        url={'/my/curso/'}
+                        url={'/principal/curso/'}
                       />
                     </Col>
                   ))}
@@ -38,7 +38,7 @@ const TablaCurso = (props) => {
                             nombre={val.nombre}
                             descripcion={val.descripcion}
                             clave={val.clave}
-                            url={'/my/curso/'}
+                            url={'/principal/curso/'}
                           />
                         </Col>
                       ))}

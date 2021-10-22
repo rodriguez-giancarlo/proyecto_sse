@@ -2,6 +2,8 @@ import React from 'react'
 import { FcMenu } from "react-icons/fc";
 import Avatar from '../../img/Avatar.png'
 const Topbar = () => {
+        let firstName =  localStorage.nombre;    
+        let firstFoto =  localStorage.foto;   
     return (
         
         <div className="topbar__contenedor">
@@ -12,10 +14,10 @@ const Topbar = () => {
                  SSE 
             </h2>
             <div className="topbar__user-wrapper">
-                <img src={Avatar} width="40px" height="40px" alt=""/>
+                <img src={firstFoto} width="40px" height="40px" alt=""/>
                 <div>
-                    <h4>Abigail Neciosup Velasquez</h4>
-                    <small>Profesor</small>
+                    <h4>{firstName}</h4>
+                    <small>Usuario</small>
                 </div>
             </div>
         </div>
