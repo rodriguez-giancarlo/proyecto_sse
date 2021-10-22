@@ -14,7 +14,7 @@ const Topbar = () => {
             <div className="topbar__user-wrapper">
                 <img src={Avatar} width="40px" height="40px" alt=""/>
                 <div>
-                    <h4>Giancarlo Rodriguez</h4>
+                    <h4>Abigail Neciosup Velasquez</h4>
                     <small>Profesor</small>
                 </div>
             </div>
