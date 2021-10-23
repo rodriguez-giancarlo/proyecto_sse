@@ -13,7 +13,7 @@ const FormCrearCurso = (props) => {
                 curso.nombre=''
                 curso.descripcion=''}}
           >
-              <Modal.Header closeButton>Crear Curso</Modal.Header>
+              <Modal.Header closeButton>Crear Curso Nuevo </Modal.Header>
                   <Modal.Body>
                       <Form noValidate validated={validated}>
                           <Form.Group>
