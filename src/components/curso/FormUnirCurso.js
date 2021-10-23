@@ -9,7 +9,7 @@ const FormUnirCurso = (props) => {
             onExiting={()=>{props.setValidated(false) 
                 console.log('saliendo'); 
                 claveVerificacion.codigo=''}}>
-                <Modal.Header closeButton>Unirse a un Curso</Modal.Header>
+                <Modal.Header closeButton>Unirse a un Curso nuevo</Modal.Header>
                     <Modal.Body>
                         <Form noValidate validated={validated}>
                             <Form.Group>
