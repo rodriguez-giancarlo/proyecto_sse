@@ -9,13 +9,13 @@ const FormUnirCurso = (props) => {
             onExiting={()=>{props.setValidated(false) 
                 console.log('saliendo'); 
                 claveVerificacion.codigo=''}}>
-                <Modal.Header closeButton>Unirse a un Curso nuevo</Modal.Header>
+                <Modal.Header closeButton>Unirse a un Curso</Modal.Header>
                     <Modal.Body>
                         <Form noValidate validated={validated}>
                             <Form.Group>
                                 <Form.Label >Código de Curso</Form.Label>
                                 <Form.Control
-                                    isInvalid={error!=''}
+                                    isInvalid={error==='codigo de curso incorrecto' || error=='no puedes matricularte en un curso que creaste'}
                                     type="text" 
                                     name="codigo" 
                                     placeholder="Código de Curso" 
@@ -25,6 +25,7 @@ const FormUnirCurso = (props) => {
                                 />            
                                 <Form.Control.Feedback type="invalid">
                                    {error}
+                                   {console.log(error)}
                                 </Form.Control.Feedback> 
                             </Form.Group> 
                         </Form>

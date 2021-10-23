@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from 'react-bootstrap';
-import FormUnidad from '../../components/opcionesCurso/FormCrearUnidad';
+import FormCrearUnidad from '../../components/opcionesCurso/FormCrearUnidad';
  
 const CrearUnidad = (props) => {
     const [modalUnidad, setModalUnidad] = useState(false)
@@ -24,8 +24,8 @@ const CrearUnidad = (props) => {
     }
     return (
         <div>
-            <Button onClick={toggleUnidad} variant='link'>{props.titulo}</Button>
-            <FormUnidad
+            <Button onClick={toggleUnidad} variant='link'>+ Unidad</Button>
+            <FormCrearUnidad
             modalUnidad={modalUnidad}
             toggleUnidad={toggleUnidad}
             onChange={handleChangeUnidad}

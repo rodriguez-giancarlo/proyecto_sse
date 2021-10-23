@@ -50,10 +50,12 @@ const VistaCurso = (props) => {
             <div className="container shadow-card p-4">
                 <div className="curso">
                     {infoCurso.map((val)=>{
+                        console.log(val.idpersona);
+                        console.log(parseInt(localStorage.idpersona));
                         return(
                             <>
                                 <p className="nombre-curso">Curso: {val.nombre}</p>
-                                {localStorage.idpersona===val.idpersona?
+                                {parseInt(localStorage.idpersona)==val.idpersona?
                                     <CrearUnidad 
                                         idCurso={val.idCurso}
                                         ListarUnidadCurso={ListarUnidadCurso}
