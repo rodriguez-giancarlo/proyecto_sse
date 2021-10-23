@@ -7,7 +7,7 @@ import md5 from 'md5';
 import FormUnirCurso from '../../components/curso/FormUnirCurso';
 
 const ListaCurso = () => {
-    const idpersona = localStorage.idpersona
+    const idpersona = parseInt(localStorage.idpersona)
     const [ListaCursos, setListaCursos] = useState([])
     const [ListaCursosMatriculados, setListaCursosMatriculados] = useState([])
     useEffect(() => {
@@ -16,6 +16,10 @@ const ListaCurso = () => {
       })       
       
     }, []);
+    const ListarCC=()=>{
+        axios.get(`http://localhost:4000/curso/${idpersona}`).then((response)=>{
+            setListaCursos(response.data);  
+    })}
     useEffect(() => {
       ListarCM()
     }, [])
@@ -57,6 +61,7 @@ const ListaCurso = () => {
                     Curso.clave=md5(idpersona+Curso.nombre)
                     const nuevoCurso = await axios.post('http://localhost:4000/curso/save', Curso);
                     console.log(nuevoCurso);
+                    ListarCC()
                     toggleCrear()
                     console.log('guardado');
                     Curso.nombre=''
@@ -107,7 +112,9 @@ const ListaCurso = () => {
                         if(resp.data[0]===undefined){
                             seterror('codigo de curso incorrecto')
                         }else{  
-                            if (resp.data[0].idpersona===idpersona){
+                            console.log(resp.data[0].idpersona);
+                            console.log(idpersona);
+                            if (resp.data[0].idpersona==idpersona){
                                 seterror('no puedes matricularte en un curso que creaste')
                             }else{
                                 axios.get(`http://localhost:4000/matricula/buscar/`+ idpersona+'/'+resp.data[0].idCurso).

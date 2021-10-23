@@ -11,9 +11,9 @@ const FormCrearCurso = (props) => {
             onExiting={()=>{props.setValidated(false) 
                 console.log('saliendo'); 
                 curso.nombre=''
-                curso.descripcion=''}}
+                curso.descripcion=''}} 
           >
-              <Modal.Header closeButton>Crear Curso Nuevo </Modal.Header>
+              <Modal.Header closeButton>Crear Curso </Modal.Header>
                   <Modal.Body>
                       <Form noValidate validated={validated}>
                           <Form.Group>
