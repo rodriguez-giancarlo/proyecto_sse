@@ -27,11 +27,11 @@ const FormEditarUnidad = (props) => {
                             <Form.Control 
                                 as="textarea" 
                                 name="descripcion"  
-                                placeholder="Unidad"    
+                                placeholder="Descripción"    
                                 onChange={onChange}
                                 required
                             />
-                             <Form.Control.Feedback type="invalid">
+                            <Form.Control.Feedback type="invalid">
                                 Campo de descripcion esta vacío.
                             </Form.Control.Feedback>  
                         </Form.Group>
