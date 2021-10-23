@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { Button } from 'react-bootstrap';
 import FormCrearUnidad from '../../components/opcionesCurso/FormCrearUnidad';
@@ -8,7 +9,8 @@ const CrearUnidad = (props) => {
     //crear unidad
     const [ Unidad, setUnidad ] = useState({
         nombre: '',
-        descripcion: ''
+        descripcion: '',
+        idCurso:props.idCurso
     });
     const handleChangeUnidad = (event) => {
         const target = event.target;
@@ -19,8 +21,24 @@ const CrearUnidad = (props) => {
             [nombre]: valor
         });
     }
-    const CrearUnidad=()=>{
-        console.log('crear unidad');    
+    //valdiar Campos
+    const [validatedUnidad, setValidatedUnidad] = useState(false);
+    const CrearUnidad= async (event)=>{
+        event.preventDefault();
+        if(Unidad.nombre.length!=0 && Unidad.descripcion.length!=0){
+            console.log('campo llenos');
+            try {
+                const nuevaUnidad= await axios.post('http://localhost:4000/unidad/save',Unidad)
+                console.log(nuevaUnidad); 
+                props.ListarUnidadCurso()
+                toggleUnidad()  
+                console.log('crear unidad');   
+            } catch (error) {
+                console.log(error.message);
+                alert("Error al agregar");  
+            }
+        }
+         
     }
     return (
         <div>
