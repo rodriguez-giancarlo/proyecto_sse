@@ -74,12 +74,13 @@ const VistaCurso = (props) => {
                             nombre={valUnidad.nombre}
                             unidad={++numero}
                             />
+                            {parseInt(localStorage.idpersona)==infoCurso[0].idpersona?
                             <UnidadTema
                                 idUnidad={valUnidad.idUnidad}
                                 idCurso={props.match.params.idcurso}
                                 ListarUnidadCurso={ListarUnidadCurso}
                                 ListarTemasCurso={ListarTemasCurso}
-                            />
+                            />:null}    
                             </div>
                             {ListarTemas.map((valTema)=>{
                                 if(valUnidad.idUnidad==valTema.idUnidad){
@@ -88,12 +89,13 @@ const VistaCurso = (props) => {
                                             <Tema
                                                 nombre={valTema.nombre}
                                             />
+                                             {parseInt(localStorage.idpersona)==infoCurso[0].idpersona?
                                             <TemaRecurso
                                                  idUnidad={valUnidad.idUnidad}
                                                  nombreTema={valTema.nombre}
                                                  idTema={valTema.idTema}
                                                  ListarTemasCurso={ListarTemasCurso}
-                                            />
+                                            />:null}
                                         </div>
                                     )
                                 }
