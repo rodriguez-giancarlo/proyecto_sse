@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
 
 const FormCrearTema = (props) => {
-    const {modalTema,toggleTema,onChange,crearTema}=props
+    const {modalTema,toggleTema,onChange,onClick}=props
     return (
         <>
             <Modal show={modalTema} onHide={toggleTema} centered>
@@ -24,7 +24,7 @@ const FormCrearTema = (props) => {
                     </Form> 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button block className="celeste" onClick={crearTema} >
+                    <Button block className="celeste" onClick={onClick} >
                         Crear Tema
                     </Button>   
                 </Modal.Footer>

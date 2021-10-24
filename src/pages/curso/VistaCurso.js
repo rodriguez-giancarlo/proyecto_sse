@@ -7,6 +7,7 @@ import './estilosVU.css'
 import CrearUnidad from '../opcionesCurso/CrearUnidad'
 import UnidadTema from '../opcionesCurso/UnidadTema'
 import TemaRecurso from '../opcionesCurso/TemaRecurso'
+import { useParams } from 'react-router'
 
 const VistaCurso = (props) => {
     useEffect(() => {
@@ -18,11 +19,13 @@ const VistaCurso = (props) => {
             setinfoCurso(response.data);
         })
     }
+   //------------------------------------------------------------------------------
      //unidad-cargarDatos
     const [ListaUnidad, setListaUnidad] = useState([])
     useEffect(() => {
         ListarUnidadCurso()
     }, []);
+    //-----------------------------------------------------------------------------
     const ListarUnidadCurso=()=>{
         axios.get('http://localhost:4000/unidad/'+props.match.params.idcurso).
             then((response)=>{
@@ -37,9 +40,8 @@ const VistaCurso = (props) => {
     }, []);
     const ListarTemasCurso=()=>{
         axios.get('http://localhost:4000/tema/'+props.match.params.idcurso).
-        then((response)=>{
-            setListarTemas(response.data);
-
+        then((respuesta)=>{
+            setListarTemas(respuesta.data);
         })
     };
     return (
@@ -74,16 +76,21 @@ const VistaCurso = (props) => {
                             />
                             <UnidadTema
                                 idUnidad={valUnidad.idUnidad}
+                                idCurso={props.match.params.idcurso}
+                                ListarUnidadCurso={ListarUnidadCurso}
+                                ListarTemasCurso={ListarTemasCurso}
                             />
                             </div>
                             {ListarTemas.map((valTema)=>{
-                                if(valUnidad.idUnidad===valTema.idUnidad){
+                                if(valUnidad.idUnidad==valTema.idUnidad){
                                     return(
                                         <div className="tema">
                                             <Tema
                                                 nombre={valTema.nombre}
                                             />
-                                            <TemaRecurso/>
+                                            <TemaRecurso
+                                                
+                                            />
                                         </div>
                                     )
                                 }
