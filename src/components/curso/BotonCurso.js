@@ -8,7 +8,7 @@ const BotonCurso = (props) => {
         <>
             <Dropdown className="pb-4 ">
             <Dropdown.Toggle className=" rounded-pill" id="dropdown-autoclose-true" bsPrefix>
-               <FaPlus/> <span>Curso</span>
+                <FaPlus/> <span>Curso</span>
             </Dropdown.Toggle  >
             <Dropdown.Menu right='true' className="center shadow-card" >
                 <Dropdown.Item onClick={props.toggleUnir}> Agregar un curso </Dropdown.Item>

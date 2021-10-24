@@ -1,28 +1,30 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input, CustomInput,Button,Row,Col} from 'reactstrap';
+//import { Form, FormGroup, Label, Input,Button,Row,Col} from 'reactstrap';
+import {Form, Button, Col, Row} from 'react-bootstrap';
 
 const FormDatUsuario = ({
+        fecha,
         usuario,
         onClick,
-        onChange
+        onChange,
     }) => { 
     return (
     <div className="container">
         <Form>
-            <FormGroup>
-                <Label>Nombres</Label>
-                <Input 
+            <Form.Group>
+                <Form.Label>Nombres</Form.Label>
+                <Form.Control 
                     type="text" 
                     name="nombre" 
                     placeholder="Nombre"  
                     autoComplete="off"
                     value= {usuario.nombre}
-                    onchange={onchange}
+                    onchange={onChange}
                 />            
-            </FormGroup>                
-            <FormGroup>
-                <Label for="input-nombre-apellidos" >Apellidos</Label>
-                <Input 
+            </Form.Group>                
+            <Form.Group>
+                <Form.Label>Apellidos</Form.Label>
+                <Form.Control 
                     type="text" 
                     name="nombre" 
                     id="input-nombre-apellidos" 
@@ -31,38 +33,39 @@ const FormDatUsuario = ({
                     value={usuario.apellido}
                     onChange={onChange}    
                     />            
-            </FormGroup>
-            <FormGroup>
-                <Label for="input-nombre-sexo" >Sexo</Label>
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Sexo</Form.Label>
                     <div style={{display: "flex",justifyContent: "space-around"}}>
-                        <CustomInput 
-                            type="radio" 
-                            id="input-sexo-femenino" 
-                            name="femenino" 
-                            label="Femenino" 
+                    <Col sm={10}>
+                    <Form.Check
+                        type="radio"
+                        label="Femenino"
+                        name="formHorizontalRadios"
+                        id="formHorizontalRadios1"
                         />
-                        <CustomInput 
-                            type="radio" 
-                            id="exampleCustomRadio2" 
-                            name="customRadio" 
-                            label="Masculino" 
+                        <Form.Check
+                        type="radio"
+                        label="Masculino"
+                        name="formHorizontalRadios"
+                        id="formHorizontalRadios2"
                         />
+                    </Col>                                            
                     </div>
-            </FormGroup>
-            <FormGroup>
-                <Label for="input-fecha-nacimiento" >Fecha de Nacimiento</Label>
-                <Input 
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Fecha de Nacimiento</Form.Label>
+                <Form.Control 
                     type="date" 
                     name="fechanacimiento" 
                     id="input-fecha-nacimiento"
                     onChange={onChange}    
-                    dateFormat="dd-MM-yyyy"
-                    value={usuario.fechaNacimiento}
+                    value={fecha}
                 />            
-            </FormGroup>
-            <FormGroup>
-                <Label for="input-dni" >DNI</Label>
-                <Input 
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>DNI</Form.Label>
+                <Form.Control 
                     type="number" 
                     name="input-dni" 
                     id="input-dni" 
@@ -70,7 +73,7 @@ const FormDatUsuario = ({
                     onChange={onChange}    
                     value={usuario.dni}
                     />            
-            </FormGroup>
+            </Form.Group>
                 <Row className="mt-3">
                     <Col style={{textAlign:"end"}}>
                         <Button 

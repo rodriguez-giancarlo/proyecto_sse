@@ -89,12 +89,12 @@ const VistaCurso = (props) => {
                                             <Tema
                                                 nombre={valTema.nombre}
                                             />
-                                             {parseInt(localStorage.idpersona)==infoCurso[0].idpersona?
+                                            {parseInt(localStorage.idpersona)==infoCurso[0].idpersona?
                                             <TemaRecurso
-                                                 idUnidad={valUnidad.idUnidad}
-                                                 nombreTema={valTema.nombre}
-                                                 idTema={valTema.idTema}
-                                                 ListarTemasCurso={ListarTemasCurso}
+                                                idUnidad={valUnidad.idUnidad}
+                                                nombreTema={valTema.nombre}
+                                                idTema={valTema.idTema}
+                                                ListarTemasCurso={ListarTemasCurso}
                                             />:null}
                                         </div>
                                     )
