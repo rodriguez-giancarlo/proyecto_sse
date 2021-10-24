@@ -127,7 +127,7 @@ const ListaCurso = () => {
                                             idcurso:resp.data[0].idCurso,
                                             vigencia:2
                                         })
-                                        ListaCursosMatriculados()
+                                        ListarCM()
                                         toggleUnir()    
                                         console.log('te puedes matricular');
                                     }else{
