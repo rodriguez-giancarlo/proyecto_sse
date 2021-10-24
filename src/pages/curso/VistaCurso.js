@@ -89,7 +89,10 @@ const VistaCurso = (props) => {
                                                 nombre={valTema.nombre}
                                             />
                                             <TemaRecurso
-                                                
+                                                 idUnidad={valUnidad.idUnidad}
+                                                 nombreTema={valTema.nombre}
+                                                 idTema={valTema.idTema}
+                                                 ListarTemasCurso={ListarTemasCurso}
                                             />
                                         </div>
                                     )

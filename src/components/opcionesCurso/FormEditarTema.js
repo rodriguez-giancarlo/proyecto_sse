@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
 
 const FormEditarTema = (props) => {
-    const {modalTema,toggleTema,onChange,editarTema}=props
+    const {modalTema,toggleTema,onChange,onClick,infoTema}=props
     return (
         <>
             <Modal show={modalTema} onHide={toggleTema} centered>
@@ -18,13 +18,14 @@ const FormEditarTema = (props) => {
                                     name='nombre'
                                     placeholder="tema" 
                                     autoComplete="off"
+                                    defaultValue={infoTema.nombre}
                                     onChange={onChange}
                                 />
                         </Form.Group>
                     </Form> 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button block className="celeste" onClick={editarTema} >
+                    <Button block className="celeste" onClick={onClick} >
                         Editar Tema
                     </Button>   
                 </Modal.Footer>
