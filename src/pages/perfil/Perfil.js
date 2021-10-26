@@ -4,15 +4,13 @@ import FormPerfil from '../../components/perfil/FormPerfil'
 
 const PagDatUsuario = () => {
         const [usuario, setUsuario] = useState({}) 
-        const [fecha, setFecha] = useState('') 
-        
+
         const googleId  = localStorage.googleId  
         const idPersona = localStorage.idpersona  
 
         const buscarUsuario = () => {
             axios.get(`http://localhost:4000/persona/buscarId/${googleId}`).then((resp)=>{                
-            const datos = resp.data                        
-                setUsuario(datos[0])  
+                const datos = resp.data                                        
                 // Cambiar formato de Fecha
                 var fecha = datos[0].fechaNacimiento
                 function formatDate(date) {
@@ -27,8 +25,9 @@ const PagDatUsuario = () => {
                         day = '0' + day;                
                     return [year, month, day].join('-');
                 }
-                const dataFecha = formatDate(fecha);
-                setFecha(dataFecha);
+                
+                datos[0].fechaNacimiento = formatDate(fecha);
+                setUsuario(datos[0])  
                 
             })
         }
@@ -55,7 +54,6 @@ const PagDatUsuario = () => {
         <>
             <FormPerfil
             usuario={usuario}
-            fecha={fecha}
             onChange={handleChangeUsuario}
             onClick={EditarPerfil}            
             />                

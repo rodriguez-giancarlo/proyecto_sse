@@ -2,7 +2,7 @@ import React  from 'react';
 import {Form, Button, Col, Row} from 'react-bootstrap';
 
 const FormDatUsuario = ({
-        fecha,
+        // fecha,
         usuario,
         onClick,
         onChange,
@@ -64,7 +64,8 @@ const FormDatUsuario = ({
                     name="fechaNacimiento" 
                     id="input-fecha-nacimiento"
                     onChange={onChange}    
-                    value={fecha}
+                    value={usuario.fechaNacimiento}
+                    // value={fecha}
                 />            
             </Form.Group>
             <Form.Group>
