@@ -5,11 +5,15 @@ import FormPerfil from '../../components/perfil/FormPerfil'
 const PagDatUsuario = () => {
         const [usuario, setUsuario] = useState({}) 
         const [fecha, setFecha] = useState('') 
-        const googleId  = localStorage.googleId    
+        
+        const googleId  = localStorage.googleId  
+        const idPersona = localStorage.idpersona  
+
         const buscarUsuario = () => {
             axios.get(`http://localhost:4000/persona/buscarId/${googleId}`).then((resp)=>{                
             const datos = resp.data                        
                 setUsuario(datos[0])  
+                // Cambiar formato de Fecha
                 var fecha = datos[0].fechaNacimiento
                 function formatDate(date) {
                     var d = new Date(date),
@@ -25,22 +29,35 @@ const PagDatUsuario = () => {
                 }
                 const dataFecha = formatDate(fecha);
                 setFecha(dataFecha);
+                
             })
         }
-        
-        const guardar = () => {
-            console.log(usuario)
-        }
+
         useEffect(() => {
             buscarUsuario()
         }, [])
+        
+        const handleChangeUsuario = (event) => {
+            const target = event.target;
+            const valor = target.value;
+            const nombre = target.name;
+            setUsuario({
+                ...usuario,
+                [nombre]: valor
+            });
+        }
 
+        const EditarPerfil=()=>{
+            axios.put(`http://localhost:4000/persona/update/${idPersona}`,usuario);
+        }   
+        
     return (
         <>
             <FormPerfil
             usuario={usuario}
-            onClick={guardar}
             fecha={fecha}
+            onChange={handleChangeUsuario}
+            onClick={EditarPerfil}            
             />                
         </>
     )

@@ -1,5 +1,4 @@
-import React from 'react';
-//import { Form, FormGroup, Label, Input,Button,Row,Col} from 'reactstrap';
+import React  from 'react';
 import {Form, Button, Col, Row} from 'react-bootstrap';
 
 const FormDatUsuario = ({
@@ -9,7 +8,7 @@ const FormDatUsuario = ({
         onChange,
     }) => { 
     return (
-    <div className="container">
+    <div className="container"> 
         <Form>
             <Form.Group>
                 <Form.Label>Nombres</Form.Label>
@@ -19,14 +18,14 @@ const FormDatUsuario = ({
                     placeholder="Nombre"  
                     autoComplete="off"
                     value= {usuario.nombre}
-                    onchange={onChange}
+                    onChange={onChange}
                 />            
             </Form.Group>                
             <Form.Group>
                 <Form.Label>Apellidos</Form.Label>
                 <Form.Control 
                     type="text" 
-                    name="nombre" 
+                    name="apellido" 
                     id="input-nombre-apellidos" 
                     placeholder="Apellidos" 
                     autoComplete="off"
@@ -41,15 +40,20 @@ const FormDatUsuario = ({
                     <Form.Check
                         type="radio"
                         label="Femenino"
-                        name="formHorizontalRadios"
-                        id="formHorizontalRadios1"
+                        name="sexo"
+                        value="0"
+                        checked={usuario.sexo === '0'}
+                        onChange={onChange}
                         />
                         <Form.Check
                         type="radio"
                         label="Masculino"
-                        name="formHorizontalRadios"
-                        id="formHorizontalRadios2"
+                        name="sexo"
+                        value="1"
+                        checked={usuario.sexo === '1'}
+                        onChange={onChange}
                         />
+                        <p>{usuario.sexo}</p>
                     </Col>                                            
                     </div>
             </Form.Group>
@@ -57,7 +61,7 @@ const FormDatUsuario = ({
                 <Form.Label>Fecha de Nacimiento</Form.Label>
                 <Form.Control 
                     type="date" 
-                    name="fechanacimiento" 
+                    name="fechaNacimiento" 
                     id="input-fecha-nacimiento"
                     onChange={onChange}    
                     value={fecha}
@@ -67,7 +71,7 @@ const FormDatUsuario = ({
                 <Form.Label>DNI</Form.Label>
                 <Form.Control 
                     type="number" 
-                    name="input-dni" 
+                    name="dni" 
                     id="input-dni" 
                     autoComplete="off"
                     onChange={onChange}    
@@ -77,13 +81,11 @@ const FormDatUsuario = ({
                 <Row className="mt-3">
                     <Col style={{textAlign:"end"}}>
                         <Button 
-                            to='/principal'  
-                            className="celeste"  
-                            style={{ marginRight:"10px" }}
+                            block 
                             onClick={onClick}
-                        >
-                            Guardar
-                        </Button>                                                             
+                            to="/principal/my">
+                            Actualizar
+                        </Button>                                                              
                     </Col>
                 </Row>
         </Form>                
