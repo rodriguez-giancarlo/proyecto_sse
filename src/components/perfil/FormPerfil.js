@@ -1,86 +1,92 @@
-import React from 'react';
-import { Form, FormGroup, Label, Input, CustomInput,Button,Row,Col} from 'reactstrap';
+import React  from 'react';
+import {Form, Button, Col, Row} from 'react-bootstrap';
 
 const FormDatUsuario = ({
+        // fecha,
         usuario,
         onClick,
-        onChange
+        onChange,
     }) => { 
     return (
-    <div className="container">
+    <div className="container"> 
         <Form>
-            <FormGroup>
-                <Label>Nombres</Label>
-                <Input 
+            <Form.Group>
+                <Form.Label>Nombres</Form.Label>
+                <Form.Control 
                     type="text" 
                     name="nombre" 
                     placeholder="Nombre"  
                     autoComplete="off"
                     value= {usuario.nombre}
-                    onchange={onchange}
+                    onChange={onChange}
                 />            
-            </FormGroup>                
-            <FormGroup>
-                <Label for="input-nombre-apellidos" >Apellidos</Label>
-                <Input 
+            </Form.Group>                
+            <Form.Group>
+                <Form.Label>Apellidos</Form.Label>
+                <Form.Control 
                     type="text" 
-                    name="nombre" 
+                    name="apellido" 
                     id="input-nombre-apellidos" 
                     placeholder="Apellidos" 
                     autoComplete="off"
                     value={usuario.apellido}
                     onChange={onChange}    
                     />            
-            </FormGroup>
-            <FormGroup>
-                <Label for="input-nombre-sexo" >Sexo</Label>
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Sexo</Form.Label>
                     <div style={{display: "flex",justifyContent: "space-around"}}>
-                        <CustomInput 
-                            type="radio" 
-                            id="input-sexo-femenino" 
-                            name="femenino" 
-                            label="Femenino" 
+                    <Col sm={10}>
+                    <Form.Check
+                        type="radio"
+                        label="Femenino"
+                        name="sexo"
+                        value="0"
+                        checked={usuario.sexo === '0'}
+                        onChange={onChange}
                         />
-                        <CustomInput 
-                            type="radio" 
-                            id="exampleCustomRadio2" 
-                            name="customRadio" 
-                            label="Masculino" 
+                        <Form.Check
+                        type="radio"
+                        label="Masculino"
+                        name="sexo"
+                        value="1"
+                        checked={usuario.sexo === '1'}
+                        onChange={onChange}
                         />
+                        <p>{usuario.sexo}</p>
+                    </Col>                                            
                     </div>
-            </FormGroup>
-            <FormGroup>
-                <Label for="input-fecha-nacimiento" >Fecha de Nacimiento</Label>
-                <Input 
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Fecha de Nacimiento</Form.Label>
+                <Form.Control 
                     type="date" 
-                    name="fechanacimiento" 
+                    name="fechaNacimiento" 
                     id="input-fecha-nacimiento"
                     onChange={onChange}    
-                    dateFormat="dd-MM-yyyy"
                     value={usuario.fechaNacimiento}
+                    // value={fecha}
                 />            
-            </FormGroup>
-            <FormGroup>
-                <Label for="input-dni" >DNI</Label>
-                <Input 
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>DNI</Form.Label>
+                <Form.Control 
                     type="number" 
-                    name="input-dni" 
+                    name="dni" 
                     id="input-dni" 
                     autoComplete="off"
                     onChange={onChange}    
                     value={usuario.dni}
                     />            
-            </FormGroup>
+            </Form.Group>
                 <Row className="mt-3">
                     <Col style={{textAlign:"end"}}>
                         <Button 
-                            to='/principal'  
-                            className="celeste"  
-                            style={{ marginRight:"10px" }}
+                            block 
                             onClick={onClick}
-                        >
-                            Guardar
-                        </Button>                                                             
+                            to="/principal/my">
+                            Actualizar
+                        </Button>                                                              
                     </Col>
                 </Row>
         </Form>                

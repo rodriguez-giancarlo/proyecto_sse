@@ -124,6 +124,18 @@ const VistaCurso = (props) => {
                                                 }
                                             })}
                                         </>
+                                        <div className="tema">
+                                            <Tema
+                                                nombre={valTema.nombre}
+                                            />
+                                            {parseInt(localStorage.idpersona)==infoCurso[0].idpersona?
+                                            <TemaRecurso
+                                                idUnidad={valUnidad.idUnidad}
+                                                nombreTema={valTema.nombre}
+                                                idTema={valTema.idTema}
+                                                ListarTemasCurso={ListarTemasCurso}
+                                            />:null}
+                                        </div>
                                     )
                                 }
                             })}
