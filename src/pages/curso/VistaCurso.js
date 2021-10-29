@@ -8,6 +8,7 @@ import CrearUnidad from '../opcionesCurso/CrearUnidad'
 import UnidadTema from '../opcionesCurso/UnidadTema'
 import TemaRecurso from '../opcionesCurso/TemaRecurso'
 import { useParams } from 'react-router'
+import Recurso from '../../components/vistaCurso/Recurso'
 
 const VistaCurso = (props) => {
     useEffect(() => {
@@ -42,6 +43,18 @@ const VistaCurso = (props) => {
         axios.get('http://localhost:4000/tema/'+props.match.params.idcurso).
         then((respuesta)=>{
             setListarTemas(respuesta.data);
+        })
+    };
+
+    // recurso-cargardatos
+    const [Listarrecursos, setListarrecursos] = useState([])
+    useEffect(() => {
+        ListarrecursosCurso()
+    }, []);
+    const ListarrecursosCurso=()=>{
+        axios.get('http://localhost:4000/recurso/'+props.match.params.idcurso).
+        then((respuesta)=>{
+            setListarrecursos(respuesta.data);
         })
     };
     return (
@@ -85,18 +98,32 @@ const VistaCurso = (props) => {
                             {ListarTemas.map((valTema)=>{
                                 if(valUnidad.idUnidad==valTema.idUnidad){
                                     return(
-                                        <div className="tema">
-                                            <Tema
-                                                nombre={valTema.nombre}
-                                            />
-                                             {parseInt(localStorage.idpersona)==infoCurso[0].idpersona?
-                                            <TemaRecurso
-                                                 idUnidad={valUnidad.idUnidad}
-                                                 nombreTema={valTema.nombre}
-                                                 idTema={valTema.idTema}
-                                                 ListarTemasCurso={ListarTemasCurso}
-                                            />:null}
-                                        </div>
+                                        <>
+                                            <div className="tema">
+                                                <Tema
+                                                    nombre={valTema.nombre}
+                                                />
+                                                {parseInt(localStorage.idpersona)==infoCurso[0].idpersona?
+                                                <TemaRecurso
+                                                    idUnidad={valUnidad.idUnidad}
+                                                    nombreTema={valTema.nombre}
+                                                    idTema={valTema.idTema}
+                                                    ListarTemasCurso={ListarTemasCurso}
+                                                />:null}
+                                            </div>
+                                            {Listarrecursos.map((valRecurso)=>{
+                                                if(valTema.idTema==valRecurso.idTema){
+                                                    return(
+                                                        <div className="recurso">
+                                                            <Recurso
+                                                                nombre={valRecurso.nombre}
+                                                                url={valRecurso.archivo}
+                                                            />
+                                                        </div>
+                                                    )
+                                                }
+                                            })}
+                                        </>
                                     )
                                 }
                             })}

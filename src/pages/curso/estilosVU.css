@@ -27,3 +27,7 @@
     align-items: center;
     width: 45%;
 }
+.seccion-recurso{
+    display: flex;
+    /* align-items: center; */
+}
