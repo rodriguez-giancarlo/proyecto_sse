@@ -9,6 +9,7 @@ import UnidadTema from '../opcionesCurso/UnidadTema'
 import TemaRecurso from '../opcionesCurso/TemaRecurso'
 import { useParams } from 'react-router'
 import Recurso from '../../components/vistaCurso/Recurso'
+import OpcionesRecurso from '../opcionesCurso/OpcionesRecurso'
 
 const VistaCurso = (props) => {
     useEffect(() => {
@@ -114,27 +115,21 @@ const VistaCurso = (props) => {
                                             {Listarrecursos.map((valRecurso)=>{
                                                 if(valTema.idTema==valRecurso.idTema){
                                                     return(
-                                                        <div className="recurso">
-                                                            <Recurso
-                                                                nombre={valRecurso.nombre}
-                                                                url={valRecurso.archivo}
-                                                            />
-                                                        </div>
+                                                        <>
+                                                            <div className="recurso">
+                                                                <Recurso
+                                                                    nombre={valRecurso.nombre}
+                                                                    url={valRecurso.archivo}
+                                                                />
+                                                                {parseInt(localStorage.idpersona)==infoCurso[0].idpersona?
+                                                                <OpcionesRecurso
+                                                                />:null}
+                                                            </div>
+                                                        </>
+
                                                     )
                                                 }
                                             })}
-                                            <div className="tema">
-                                                <Tema
-                                                    nombre={valTema.nombre}
-                                                />
-                                                {parseInt(localStorage.idpersona)==infoCurso[0].idpersona?
-                                                <TemaRecurso
-                                                    idUnidad={valUnidad.idUnidad}
-                                                    nombreTema={valTema.nombre}
-                                                    idTema={valTema.idTema}
-                                                    ListarTemasCurso={ListarTemasCurso}
-                                                />:null}
-                                            </div>
                                         </>
                                     )
                                 }
