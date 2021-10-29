@@ -15,7 +15,7 @@ const FormUnirCurso = (props) => {
                             <Form.Group>
                                 <Form.Label >Código de Curso</Form.Label>
                                 <Form.Control
-                                    isInvalid={error==='codigo de curso incorrecto' || error=='no puedes matricularte en un curso que creaste'}
+                                    isInvalid={error==='Código de curso incorrecto.' || error=='No puedes matricularte en un curso que has creado.'}
                                     type="text" 
                                     name="codigo" 
                                     placeholder="Código de Curso" 

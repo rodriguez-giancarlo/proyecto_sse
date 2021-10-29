@@ -56,14 +56,14 @@ const ListaCurso = () => {
     const crearNuevoCurso = async (event) => {
         event.preventDefault();
         if(Curso.nombre.length!=0 && Curso.descripcion.length!=0){
-            console.log('campo llenos');
+            // console.log('campo llenos');
             try {
                     Curso.clave=md5(idpersona+Curso.nombre)
                     const nuevoCurso = await axios.post('http://localhost:4000/curso/save', Curso);
                     console.log(nuevoCurso);
                     ListarCC()
                     toggleCrear()
-                    console.log('guardado');
+                    // console.log('guardado');
                     Curso.nombre=''
                     Curso.descripcion=''
 
@@ -73,7 +73,7 @@ const ListaCurso = () => {
             }
         }else{
             setValidated(true);
-            console.log('error ');
+            console.log('error');
         }
     }
     //-------------------------------------------------------------------------------------------------------------//
@@ -105,17 +105,17 @@ const ListaCurso = () => {
         seterror('')
             event.preventDefault();
             if(claveVerificacion.codigo.length!=0){
-                console.log('campo llenos '+ claveVerificacion.codigo);
+                // console.log('campo llenos '+ claveVerificacion.codigo);
                 try {
                     axios.get(`http://localhost:4000/curso/buscar/`+claveVerificacion.codigo)
                     .then((resp)=>{
                         if(resp.data[0]===undefined){
-                            seterror('codigo de curso incorrecto')
+                            seterror('Código incorrecto.')
                         }else{  
                             console.log(resp.data[0].idpersona);
-                            console.log(idpersona);
+                            // console.log(idpersona);
                             if (resp.data[0].idpersona==idpersona){
-                                seterror('no puedes matricularte en un curso que creaste')
+                                seterror('No puedes matricularte en un curso que has creado.')
                             }else{
                                 axios.get(`http://localhost:4000/matricula/buscar/`+ idpersona+'/'+resp.data[0].idCurso).
                                 then((sql)=>{
@@ -129,17 +129,16 @@ const ListaCurso = () => {
                                         })
                                         ListarCM()
                                         toggleUnir()    
-                                        console.log('te puedes matricular');
+                                        // console.log('te puedes matricular');
                                     }else{
-                                        seterror('ya estas matriculado en este curso');
+                                        seterror('Ya estás matriculado en este curso.');
                                     }
                                 })
                             }
                         }
 
                     })
-                    console.log('guardado');
-    
+                    // console.log('guardado');    
                 } catch (error) {
                     console.log(error.message);
                     alert("Error al agregar");
@@ -147,7 +146,7 @@ const ListaCurso = () => {
             }else{
                 setValidatedcodigo(true);
                 console.log('error');
-                seterror('el campo esta vacio llenalo')
+                seterror('El campo código está vacío.')
             }
    }
     return (
