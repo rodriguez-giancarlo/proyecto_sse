@@ -11,7 +11,8 @@ const Main = () => {
             <Route path="/principal/my" exact={true} component={Home}/>
             <Route path="/principal/curso" exact={true} component={ListaCurso}/>
             <Route path="/principal/perfil" exact={true} component={Perfil}/>
-            <Route path="/principal/curso/:idcurso" exact={true} component={VistaCurso}/>                                                            
+
+            <Route path="/principal/curso/:idcurso" exact={true} component={VistaCurso}/>   
         </div>
     )
 }
