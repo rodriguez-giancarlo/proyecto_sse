@@ -120,6 +120,9 @@ const VistaCurso = (props) => {
                                                                 <Recurso
                                                                     nombre={valRecurso.nombre}
                                                                     url={valRecurso.archivo}
+                                                                    idCurso={infoCurso[0].idCurso}
+                                                                    idTema={valRecurso.idTema}
+                                                                    idRecurso={valRecurso.idRecurso}
                                                                 />
                                                                 {parseInt(localStorage.idpersona)==infoCurso[0].idpersona?
                                                                 <OpcionesRecurso
