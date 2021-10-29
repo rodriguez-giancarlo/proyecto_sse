@@ -2,14 +2,14 @@ import React  from 'react';
 import {Form, Button, Col, Row} from 'react-bootstrap';
 
 const FormDatUsuario = ({
-        // fecha,
         usuario,
         onClick,
         onChange,
+        validated
     }) => { 
     return (
     <div className="container"> 
-        <Form>
+        <Form noValidate validated={validated}>
             <Form.Group>
                 <Form.Label>Nombres</Form.Label>
                 <Form.Control 
@@ -20,7 +20,10 @@ const FormDatUsuario = ({
                     value= {usuario.nombre}
                     onChange={onChange}
                 />            
-            </Form.Group>                
+            </Form.Group>
+            <Form.Control.Feedback type="invalid">
+                El campo nombre está vacío.
+            </Form.Control.Feedback>                  
             <Form.Group>
                 <Form.Label>Apellidos</Form.Label>
                 <Form.Control 
@@ -43,6 +46,7 @@ const FormDatUsuario = ({
                         name="sexo"
                         value="0"
                         checked={usuario.sexo === '0'}
+                        // checked={true}
                         onChange={onChange}
                         />
                         <Form.Check
@@ -50,7 +54,8 @@ const FormDatUsuario = ({
                         label="Masculino"
                         name="sexo"
                         value="1"
-                        checked={usuario.sexo === '1'}
+                        // checked={usuario.sexo === '1'}
+                        // checked={false}
                         onChange={onChange}
                         />
                         <p>{usuario.sexo}</p>
@@ -65,7 +70,6 @@ const FormDatUsuario = ({
                     id="input-fecha-nacimiento"
                     onChange={onChange}    
                     value={usuario.fechaNacimiento}
-                    // value={fecha}
                 />            
             </Form.Group>
             <Form.Group>

@@ -4,7 +4,8 @@ import FormPerfil from '../../components/perfil/FormPerfil'
 
 const PagDatUsuario = () => {
         const [usuario, setUsuario] = useState({}) 
-
+        const [validated, setValidated] = useState(false);
+    
         const googleId  = localStorage.googleId  
         const idPersona = localStorage.idpersona  
 
@@ -27,8 +28,7 @@ const PagDatUsuario = () => {
                 }
                 
                 datos[0].fechaNacimiento = formatDate(fecha);
-                setUsuario(datos[0])  
-                
+                setUsuario(datos[0])                  
             })
         }
 
@@ -40,14 +40,33 @@ const PagDatUsuario = () => {
             const target = event.target;
             const valor = target.value;
             const nombre = target.name;
+            setValidated('')
             setUsuario({
                 ...usuario,
                 [nombre]: valor
             });
         }
 
-        const EditarPerfil=()=>{
-            axios.put(`http://localhost:4000/persona/update/${idPersona}`,usuario);
+        //const [validated, setValidated] = useState(false);
+        
+        const EditarPerfil=()=>{            
+            var validar = 1;
+            var mensaje ='';
+            if(usuario.nombre == ''){
+                validar = 0;
+                alert('El campo Nombre está vacío')
+            }if(usuario.apellido.length == ''){
+                validar = 0;
+                alert('El campo Apellidos está vacío')
+            }if(usuario.dni.length == ''){
+                validar = 0;
+                alert('El campo DNI está vacío')
+            }else{
+                if(validar == 1){
+                    axios.put(`http://localhost:4000/persona/update/${idPersona}`,usuario);
+                }
+                
+            }
         }   
         
     return (
@@ -55,7 +74,9 @@ const PagDatUsuario = () => {
             <FormPerfil
             usuario={usuario}
             onChange={handleChangeUsuario}
-            onClick={EditarPerfil}            
+            onClick={EditarPerfil}  
+            validated={validated}
+            // setValidated={setValidated}          
             />                
         </>
     )
