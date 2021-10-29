@@ -23,9 +23,9 @@
 .recurso{    
     margin-left: 60px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    width: 45%;
+    /* width: 45%; */
 }
 .seccion-recurso{
     display: flex;
