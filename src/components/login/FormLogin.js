@@ -18,7 +18,6 @@ const FormLogin = (props) =>{
             .then((resp)=>{                                
                 if(resp.data[0]!=undefined){
                     localStorage.idpersona = resp.data[0].idpersona 
-                    console.log(localStorage.idpersona)
                     history.push("/principal")
         }else{
             if(resp.data[0] == undefined){                
