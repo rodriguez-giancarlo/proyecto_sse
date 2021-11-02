@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import BtnTemaRecurso from '../../components/opcionesCurso/BtnTemaRecurso'
 import FormEditarTema from '../../components/opcionesCurso/FormEditarTema'
 import FormCrearRecurso from '../../components/opcionesCurso/FormCrearRecurso'
-
+ 
 const TemaRecurso = (props) => {
     //-------------------------------------------------------------------------------------------------------------//
     //                                                   tema
@@ -42,17 +42,20 @@ const TemaRecurso = (props) => {
     const [modalRecurso, setModalRecurso] = useState(false)
     const toggleRecurso = () => {setModalRecurso(!modalRecurso)}
 
+    const [Pfile, setFile] = useState(null)
+
     const [recurso, setrecurso] = useState({
         nombre:'',
         fecha:'',
-        archivo:'',
+        archivo: File,
         idTema:props.idTema,
         estado:1,
         tipo:'url',
         vigencia:1
     });
     const handleChangeRecurso = (event) => {
-        const target = event.target;
+        
+        const target=event.target;
         const valor = target.value;
         const nombre = target.name;
         console.log(valor);
@@ -63,7 +66,15 @@ const TemaRecurso = (props) => {
     }
     const CrearRecurso= async ()=>{
         try {
-            const nuevaRecurso= await axios.post('http://localhost:4000/recurso/save',recurso)
+            const nuevaRecurso= await axios.post('http://localhost:4000/recurso/save',{
+                nombre:recurso.nombre,
+                fecha:recurso.fecha,
+                archivo: Pfile,
+                idTema:props.idTema,
+                estado:1,
+                tipo:'url',
+                vigencia:1
+            })
             console.log(nuevaRecurso); 
             console.log('crear Recurso');
             console.log(recurso); 
@@ -71,7 +82,7 @@ const TemaRecurso = (props) => {
             console.log(error.message);
             alert("Error al agregar");  
         }
-       
+       console.log(Pfile);
     }
    
     return (
@@ -92,6 +103,7 @@ const TemaRecurso = (props) => {
                 modalRecurso={modalRecurso} 
                 onChange={handleChangeRecurso} 
                 onClick={CrearRecurso}
+                setFile={setFile}
             />
         </>
     )

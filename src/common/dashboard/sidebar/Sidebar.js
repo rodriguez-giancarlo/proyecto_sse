@@ -45,12 +45,6 @@ const Sidebar = () => {
                             <span>Ayuda</span>
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/principal/4" exact activeClassName="active">
-                            <span><FcStatistics /></span> 
-                            <span>Estadística de cursos</span>
-                        </NavLink>
-                    </li>
                 </ul>
             </div>
         </div>
