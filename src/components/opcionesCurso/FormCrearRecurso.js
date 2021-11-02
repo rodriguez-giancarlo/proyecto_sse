@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
 
 const FormCrearRecurso = (props) => {
-    const {modalRecurso,toggleRecurso,onChange,onClick,setSelectedFile}=props
+    const {modalRecurso,toggleRecurso,onChange,onClick,setFile}=props
     // const [vigencia, setvigencia] = useState(2)
     return (
         <>
@@ -35,18 +35,18 @@ const FormCrearRecurso = (props) => {
                         </Form.Group>
                         <Form.Group controlId="formFile" className="mb-3">
                             <Form.Label>Sube un archivo</Form.Label>
-                            {/* <Form.Control 
+                            <Form.Control 
                                 type="file" 
                                 name="archivo"
-                                onChange={(e) => setSelectedFile(e.target.files[0])}
-                            /> */}
-                            <Form.Control 
+                                onChange={(e) => setFile(e.target.files[0])}
+                            />
+                            {/* <Form.Control 
                                 type="url" 
                                 name='archivo'
                                 placeholder="url del Recurso" 
                                 autoComplete="off"
                                 onChange={onChange}
-                            />
+                            /> */}
                         </Form.Group>
                         <Form.Group style={{display: "flex",justifyContent:"space-around"}} >
                         <Form.Label>Estado del recurso</Form.Label>

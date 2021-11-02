@@ -1,5 +1,5 @@
 import  axios  from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Ruta from '../../components/vistaCurso/Ruta'
 import Tema from '../../components/vistaCurso/Tema'
 import Unidad from '../../components/vistaCurso/Unidad'
@@ -7,11 +7,11 @@ import './estilosVU.css'
 import CrearUnidad from '../opcionesCurso/CrearUnidad'
 import UnidadTema from '../opcionesCurso/UnidadTema'
 import TemaRecurso from '../opcionesCurso/TemaRecurso'
-import { useParams } from 'react-router'
 import Recurso from '../../components/vistaCurso/Recurso'
 import OpcionesRecurso from '../opcionesCurso/OpcionesRecurso'
 
 const VistaCurso = (props) => {
+    const idPC = useRef(0)
     useEffect(() => {
         buscarCurso()
     },[])
@@ -19,6 +19,7 @@ const VistaCurso = (props) => {
     const buscarCurso=()=>{
         axios.get(`http://localhost:4000/curso/infocurso/${props.match.params.idcurso}`).then((response)=>{
             setinfoCurso(response.data);
+            idPC.current=response.data[0].idpersona
         })
     }
    //------------------------------------------------------------------------------
@@ -28,8 +29,8 @@ const VistaCurso = (props) => {
         ListarUnidadCurso()
     }, []);
     //-----------------------------------------------------------------------------
-    const ListarUnidadCurso=()=>{
-        axios.get('http://localhost:4000/unidad/'+props.match.params.idcurso).
+    const ListarUnidadCurso=async()=>{
+       await axios.get('http://localhost:4000/unidad/'+props.match.params.idcurso).
             then((response)=>{
                 setListaUnidad(response.data);
         })
@@ -88,7 +89,7 @@ const VistaCurso = (props) => {
                             nombre={valUnidad.nombre}
                             unidad={++numero}
                             />
-                            {parseInt(localStorage.idpersona)==infoCurso[0].idpersona?
+                            {parseInt(localStorage.idpersona)==idPC.current ?
                             <UnidadTema
                                 idUnidad={valUnidad.idUnidad}
                                 idCurso={props.match.params.idcurso}
@@ -104,7 +105,7 @@ const VistaCurso = (props) => {
                                                 <Tema
                                                     nombre={valTema.nombre}
                                                 />
-                                                {parseInt(localStorage.idpersona)==infoCurso[0].idpersona?
+                                                {parseInt(localStorage.idpersona)==idPC.current ?
                                                 <TemaRecurso
                                                     idUnidad={valUnidad.idUnidad}
                                                     nombreTema={valTema.nombre}
@@ -124,7 +125,7 @@ const VistaCurso = (props) => {
                                                                     idTema={valRecurso.idTema}
                                                                     idRecurso={valRecurso.idRecurso}
                                                                 />
-                                                                {parseInt(localStorage.idpersona)==infoCurso[0].idpersona?
+                                                                {parseInt(localStorage.idpersona)==idPC.current ?
                                                                 <OpcionesRecurso
                                                                 />:null}
                                                             </div>
