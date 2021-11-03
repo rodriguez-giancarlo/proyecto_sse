@@ -12,6 +12,7 @@ import OpcionesRecurso from '../opcionesCurso/OpcionesRecurso'
 
 const VistaCurso = (props) => {
     const idPC = useRef(0)
+    const nombreCurso = useRef(0)
     useEffect(() => {
         buscarCurso()
     },[])
@@ -20,6 +21,7 @@ const VistaCurso = (props) => {
         axios.get(`http://localhost:4000/curso/infocurso/${props.match.params.idcurso}`).then((response)=>{
             setinfoCurso(response.data);
             idPC.current=response.data[0].idpersona
+            nombreCurso.current=response.data[0].nombre
         })
     }
    //------------------------------------------------------------------------------
@@ -63,6 +65,7 @@ const VistaCurso = (props) => {
             <>
             <Ruta
                 idcurso={props.match.params.idcurso}
+                nombreCurso={nombreCurso}
             />
             <div className="container shadow-card p-4">
                 <div className="curso">
@@ -127,6 +130,7 @@ const VistaCurso = (props) => {
                                                                 />
                                                                 {parseInt(localStorage.idpersona)==idPC.current ?
                                                                 <OpcionesRecurso
+                                                                    idRecurso={valRecurso.idRecurso}
                                                                 />:null}
                                                             </div>
                                                         </>

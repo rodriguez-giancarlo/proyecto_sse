@@ -21,6 +21,7 @@
     "react-timecode": "^1.2.0",
     "react-timer-wrapper": "^0.4.1",
     "reactstrap": "^8.10.0",
+    "recharts": "^2.1.6",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

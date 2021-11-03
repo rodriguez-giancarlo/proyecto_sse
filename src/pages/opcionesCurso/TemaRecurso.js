@@ -27,7 +27,7 @@ const TemaRecurso = (props) => {
     }
     useEffect(() => {
         props.ListarTemasCurso()
-        console.log(modalTema);
+        // console.log(modalTema);
     }, [modalTema]) 
 
     const EditarTema=()=>{
@@ -82,7 +82,7 @@ const TemaRecurso = (props) => {
             console.log(error.message);
             alert("Error al agregar");  
         }
-       console.log(Pfile);
+    //    console.log(Pfile);
     }
    
     return (
