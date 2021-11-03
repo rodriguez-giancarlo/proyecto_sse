@@ -3,7 +3,7 @@ import { Dropdown } from 'react-bootstrap'
 import { FaEllipsisH } from "react-icons/fa";
 
 const BtnRecurso = (props) => {
-    const{toggleRecurso1,toggleRecurso}=props
+    const{toggleRecurso1,toggleRecurso,togglehistorial}=props
     return (
         <Dropdown>
             <Dropdown.Toggle variant="link" bsPrefix>
@@ -15,6 +15,9 @@ const BtnRecurso = (props) => {
                 </Dropdown.Item>
                 <Dropdown.Item onClick={toggleRecurso}>
                    Eliminar Recurso
+                </Dropdown.Item>
+                <Dropdown.Item onClick={togglehistorial}>
+                   ver historial
                 </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>

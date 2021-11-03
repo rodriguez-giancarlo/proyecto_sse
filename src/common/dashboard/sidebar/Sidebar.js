@@ -40,7 +40,7 @@ const Sidebar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/principal/1" exact activeClassName="active">
+                        <NavLink to="/principal/ayuda" exact activeClassName="active">
                             <span><FcIdea/></span>
                             <span>Ayuda</span>
                         </NavLink>

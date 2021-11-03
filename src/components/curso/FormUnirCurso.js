@@ -25,7 +25,7 @@ const FormUnirCurso = (props) => {
                                 />            
                                 <Form.Control.Feedback type="invalid">
                                 {error}
-                                {console.log(error)}
+                                {/* {console.log(error)} */}
                                 </Form.Control.Feedback> 
                             </Form.Group> 
                         </Form>

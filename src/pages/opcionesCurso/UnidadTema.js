@@ -77,7 +77,7 @@ const UnidadTema = (props) => {
     //-------------------------------
     useEffect(() => {
         props.ListarTemasCurso()
-        console.log(modalTema);
+        // console.log(modalTema);
     }, [modalTema]) 
     //-----------------------------no genera errores---------------------------------------------------
     const CrearTema=()=>{

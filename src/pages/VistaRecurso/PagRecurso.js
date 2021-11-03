@@ -41,6 +41,7 @@ const PagRecurso = (props) => {
         captura.current=time
     }
     useEffect(() => {
+        console.log('inicio');
         return () => {
             guarda()  
         }
@@ -75,6 +76,7 @@ const PagRecurso = (props) => {
                 <Timecode/>
             </Timer>
             <h1>{infoRecurso.nombre}</h1>
+            <h1>{localStorage.tiempo}</h1>
             <iframe 
                 width="560" 
                 height="315" 
