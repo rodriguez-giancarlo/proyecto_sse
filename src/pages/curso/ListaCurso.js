@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import TablaCurso from '../../components/curso/TablaCurso';
+import TablaCurso from './TablaCurso';
 import FormCrearCurso from '../../components/curso/FormCrearCurso';
 import BotonCurso from '../../components/curso/BotonCurso';
 import md5 from 'md5';
