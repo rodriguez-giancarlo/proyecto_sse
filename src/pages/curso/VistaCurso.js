@@ -72,7 +72,7 @@ const VistaCurso = (props) => {
                     {infoCurso.map((val)=>{
                         return(
                             <>
-                                <p className="nombre-curso">Curso: {val.nombre}</p>
+                                <p className="nombre-curso" key={val.idpersona}>Curso: {val.nombre}</p>
                                 {parseInt(localStorage.idpersona)==val.idpersona?
                                     <CrearUnidad 
                                         idCurso={val.idCurso}
@@ -87,10 +87,11 @@ const VistaCurso = (props) => {
                 {ListaUnidad.map((valUnidad)=>{
                     return(
                         <>
-                            <div className="unidad">
+                            <div className="unidad" >
                             <Unidad
                             nombre={valUnidad.nombre}
                             unidad={++numero}
+                            key={valUnidad.idUnidad}
                             />
                             {parseInt(localStorage.idpersona)==idPC.current ?
                             <UnidadTema
@@ -104,9 +105,10 @@ const VistaCurso = (props) => {
                                 if(valUnidad.idUnidad==valTema.idUnidad){
                                     return(
                                         <>
-                                            <div className="tema">
+                                            <div className="tema" >
                                                 <Tema
                                                     nombre={valTema.nombre}
+                                                    key={valTema.idTema}
                                                 />
                                                 {parseInt(localStorage.idpersona)==idPC.current ?
                                                 <TemaRecurso
@@ -122,6 +124,7 @@ const VistaCurso = (props) => {
                                                         <>
                                                             <div className="recurso">
                                                                 <Recurso
+                                                                    key={valRecurso.idRecurso}
                                                                     nombre={valRecurso.nombre}
                                                                     url={valRecurso.archivo}
                                                                     idCurso={infoCurso[0].idCurso}

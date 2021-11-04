@@ -1,14 +1,16 @@
 import React from 'react'
-import { Modal,Button, Image, ListGroup, Row, Col, Table } from 'react-bootstrap'
+import { Modal, Image, Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
-
-const TablaHistorial = ({togglehistorial,modalhistorial,listarRecurso}) => {
+ 
+const TablaHistorial = ({togglehistorial,modalhistorial,listarRecurso,idRecurso}) => {
     const encabezado = () => {
         return (
             <tr>
-                <th></th>
+                <th>#</th>
                 <th>nombre</th>
-                <th>tiempo</th>
+                <th>Nuermo de veces</th>
+                <th>tiempo acumulado</th>
+                <th></th>
             </tr>
         );
     }
@@ -20,6 +22,12 @@ const TablaHistorial = ({togglehistorial,modalhistorial,listarRecurso}) => {
                     <th><Image src={persona.urlFoto} roundedCircle width="35px" height="35px"/></th>
                     <td>{persona.nombre +" "+persona.apellido}</td>
                     <td>{persona.visto}</td>
+                    <td>{persona.TiempoAcumulado+ " seg"}</td>
+                    <td>
+                        <Link to={"/principal/historial/"+idRecurso+"/" + persona.idpersona}>
+                        detalles
+                        </Link>
+                    </td>
                 </tr>
             ))
         );
@@ -31,7 +39,7 @@ const TablaHistorial = ({togglehistorial,modalhistorial,listarRecurso}) => {
                 <Modal.Body>                                        
                 <Table responsive striped hover >
                     <thead className="bg-dark text-light">
-                        {/* { encabezado() } */}
+                        { encabezado() }
                     </thead>
                     <tbody>
                         { celdas() }
@@ -39,7 +47,6 @@ const TablaHistorial = ({togglehistorial,modalhistorial,listarRecurso}) => {
                 </Table>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Link to={"/principal/estadistica/"}>ver mas detalles</Link>
                 </Modal.Footer>
             </Modal>
         </React.Fragment>

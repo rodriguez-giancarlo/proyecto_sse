@@ -23,7 +23,7 @@ const Estadistica = () => {
             setMatriculados(response.data);
         })
     }
-    console.log(Matriculados);
+    // console.log(Matriculados);
     return (
         <>
         <AlumnosXcurso Matriculados={Matriculados}/>

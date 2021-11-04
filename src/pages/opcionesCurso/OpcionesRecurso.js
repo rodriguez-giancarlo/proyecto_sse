@@ -25,7 +25,7 @@ const OpcionesRecurso = ({idRecurso}) => {
                 togglehistorial={togglehistorial}
                 modalhistorial={modalhistorial}
                 listarRecurso={listarRecurso}
-
+                idRecurso={idRecurso}
            /> 
         </>
     )
