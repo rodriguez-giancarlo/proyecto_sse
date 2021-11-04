@@ -3,18 +3,19 @@ import Dashboard from "./common/dashboard/Dashboard";
 import {BrowserRouter, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from "./pages/login/Login";
+import RutaPrivada from "./components/rutaPrivada/RutaPrivada";
 function App() {
   return (
     <BrowserRouter>
       <Switch>
         Inicio de Sesion
-          <Route path="/" exact>
-            <Login></Login>
+          <Route path="/" exact component={Login}>
+            {/* <Login></Login> */}
           </Route>
         {/* Panel de Control (Dashboard) */}
-          <Route path="/principal">
-            <Dashboard></Dashboard>
-          </Route>
+          <RutaPrivada path="/principal" component={Dashboard}/>
+            {/* <Dashboard></Dashboard> */}
+          {/* </Route> */}
       </Switch> 
   </BrowserRouter>    
     

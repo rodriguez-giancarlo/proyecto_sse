@@ -16,6 +16,7 @@ const Topbar = (props) => {
             localStorage.removeItem('nombre')
             history.push("/") 
         }
+        console.log(localStorage.idpersona);
     return (
         
         <div className="topbar__contenedor">
@@ -41,7 +42,7 @@ const Topbar = (props) => {
                     Editar Perfil
                 </Dropdown.Item>
                 <Dropdown.Item onClick={cerrarSesion}>
-                    Cerrar sesion
+                    Cerrar sesión
                 </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
