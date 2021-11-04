@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { Col, Row, Tab, Tabs } from 'react-bootstrap'
 import CardCursoC from './CardCursoC'
-import CardCursoM from './CardCursoM'
+import CardCursoM from '../../components/curso/CardCursoM'
 
 const TablaCurso = (props) => {
   const [key, setKey] = useState('inicio');
+  
     return (
       <React.Fragment>
           <Tabs
@@ -32,15 +33,11 @@ const TablaCurso = (props) => {
             {props.ListaCursosCreado.length!=0?
               <Tab eventKey="profile" title="Cursos Creados" key='2'>
                   <Row xs={1} md={2} lg={2} xl={3}>
-                      {props.ListaCursosCreado.map((val) => (
+                      {props.ListaCursosCreado.map((curso) => (
                         <Col sm={6}  className="pb-4">
                           <CardCursoC
-                            idCurso={val.idCurso}
-                            nombre={val.nombre}
-                            descripcion={val.descripcion}
-                            clave={val.clave}
-                            url={'/principal/curso/'}
-                            key={val.idCurso}
+                            curso={curso}
+                            key={curso.idCurso}
                           />
                         </Col>
                       ))}
