@@ -73,11 +73,11 @@ const PagRecurso = (props) => {
                 active={isVisible} 
                 duration={null}
                 onTimeUpdate={capturaTiempo}
+                style={{display: 'none'}}
             >
                 <Timecode/>
             </Timer>
             <h1>{infoRecurso.nombre}</h1>
-            <h1>{localStorage.tiempo}</h1>
             <embed  
                 width="100%" 
                 style={{height:'74vh'}}                
@@ -87,6 +87,7 @@ const PagRecurso = (props) => {
             ></embed >
             {/* <embed src="https://tesis.usat.edu.pe/bitstream/20.500.12423/2237/1/TL_MilianMondragonJorge.pdf" width="500" height="375" 
             type="application/pdf"></embed> */}
+
         </div>
     )
 }

@@ -24,6 +24,15 @@ const TablaPersona = ({infohistorial,infoPersona}) => {
             day = '0' + day;                
         return [year, month, day].join('-');
     }
+    function secondsToString(seconds) {
+        var hour = Math.floor(seconds / 3600);
+        hour = (hour < 10)? '0' + hour : hour;
+        var minute = Math.floor((seconds / 60) % 60);
+        minute = (minute < 10)? '0' + minute : minute;
+        var second = seconds % 60;
+        second = (second < 10)? '0' + second : second;
+        return hour + ':' + minute + ':' + second;
+      }
     const celdas = () => {
         let numero = 0;
         return (
@@ -31,18 +40,11 @@ const TablaPersona = ({infohistorial,infoPersona}) => {
                 <tr key={numero}>
                     <td>{++numero}</td>
                     <td>{formatDate(persona.fecha)}</td>
-                    <td>{persona.tiempo+ " seg"}</td>
+                    <td>{secondsToString(persona.tiempo)}</td>
                 
                 </tr>
             ))
         );
-    }
-    const info=()=>{
-        return(
-            infoPersona.map((persona)=>{
-                <h1>{persona.nombre+ " "+ persona.apellido}</h1>
-            })
-        )
     }
     return (
         <React.Fragment>
@@ -51,7 +53,7 @@ const TablaPersona = ({infohistorial,infoPersona}) => {
                     <h4 key={persona.idpersona}>{"Alumno: "+persona.nombre+ " "+ persona.apellido}</h4>
                 )
             })}
-            <Table responsive striped hover >
+            <Table responsive striped hover className="text-center">
                 <thead className="bg-dark text-light">
                     { encabezado() }
                 </thead>

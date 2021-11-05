@@ -17,7 +17,7 @@ const FormDatUsuario = ({
                     name="nombre" 
                     placeholder="Nombre"  
                     autoComplete="off"
-                    value= {usuario.nombre}
+                    defaultValue= {usuario.nombre}
                     onChange={onChange}
                 />            
             </Form.Group>
@@ -32,7 +32,7 @@ const FormDatUsuario = ({
                     id="input-nombre-apellidos" 
                     placeholder="Apellidos" 
                     autoComplete="off"
-                    value={usuario.apellido}
+                    defaultValue={usuario.apellido}
                     onChange={onChange}    
                     />            
             </Form.Group>
@@ -44,8 +44,8 @@ const FormDatUsuario = ({
                         type="radio"
                         label="Femenino"
                         name="sexo"
-                        value="0"
-                        checked={usuario.sexo === '0'}
+                        defaultValue="0"
+                        checked={usuario.sexo == '0'?true:false}
                         // checked={true}
                         onChange={onChange}
                         />
@@ -53,12 +53,12 @@ const FormDatUsuario = ({
                         type="radio"
                         label="Masculino"
                         name="sexo"
-                        value="1"
-                        // checked={usuario.sexo === '1'}
+                        defaultValue="1"
+                        checked={usuario.sexo == '1'?true:false}
                         // checked={false}
                         onChange={onChange}
                         />
-                        <p>{usuario.sexo}</p>
+                        {/* <p>{usuario.sexo}</p> */}
                     </Col>                                            
                     </div>
             </Form.Group>
@@ -69,7 +69,7 @@ const FormDatUsuario = ({
                     name="fechaNacimiento" 
                     id="input-fecha-nacimiento"
                     onChange={onChange}    
-                    value={usuario.fechaNacimiento}
+                    defaultValue={usuario.fechaNacimiento}
                 />            
             </Form.Group>
             <Form.Group>
@@ -80,7 +80,7 @@ const FormDatUsuario = ({
                     id="input-dni" 
                     autoComplete="off"
                     onChange={onChange}    
-                    value={usuario.dni}
+                    defaultValue={usuario.dni}
                     />            
             </Form.Group>
                 <Row className="mt-3">

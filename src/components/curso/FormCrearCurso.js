@@ -1,7 +1,7 @@
 import React from 'react'
 import {Modal, Form, Button } from 'react-bootstrap'
 import './estiloscurso.css'
-
+ 
 const FormCrearCurso = (props) => {
     const {className,curso,onChange,onClick,validated} = props;
     return (
