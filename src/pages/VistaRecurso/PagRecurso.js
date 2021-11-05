@@ -19,6 +19,7 @@ const PagRecurso = (props) => {
     const buscarRecurso= async()=>{
        await axios.get(`http://localhost:4000/recurso/infoRecurso/${props.match.params.idrecurso}`).then((response)=>{
             setinfoRecurso(response.data[0]);
+            var archivo = response.data[0].archivo
         })
     }
     const buscarCurso= async()=>{
@@ -77,13 +78,16 @@ const PagRecurso = (props) => {
                 <Timecode/>
             </Timer>
             <h1>{infoRecurso.nombre}</h1>
-            <iframe 
-                width="560" 
-                height="315" 
-                src="https://www.youtube.com/embed/u1V8YRJnr4Q" 
-                title="YouTube video player" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            ></iframe>
+            <embed  
+                width="100%" 
+                style={{height:'74vh'}}                
+                type="application/pdf"
+                src="https://tesis.usat.edu.pe/bitstream/20.500.12423/2237/1/TL_MilianMondragonJorge.pdf"
+
+            ></embed >
+            {/* <embed src="https://tesis.usat.edu.pe/bitstream/20.500.12423/2237/1/TL_MilianMondragonJorge.pdf" width="500" height="375" 
+            type="application/pdf"></embed> */}
+
         </div>
     )
 }
