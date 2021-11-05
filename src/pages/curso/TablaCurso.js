@@ -13,6 +13,7 @@ const TablaCurso = (props) => {
             activeKey={key}
             onSelect={(k) => setKey(k)}
             className="mb-3"
+            key='vistaTabla'
           >
             {props.ListaCursosMatriculados.length!=0?
             <Tab eventKey="inicio" title="Cursos Matriculados" key='1'>
