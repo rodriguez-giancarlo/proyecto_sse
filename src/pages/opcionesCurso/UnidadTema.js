@@ -71,7 +71,7 @@ const UnidadTema = (props) => {
             [nombre]: valor
         });
     }
-    const onClickTema=()=>{
+    const onClickTema=()=>{ 
         toggleTema()
     }
     //-------------------------------

@@ -116,6 +116,7 @@ const VistaCurso = (props) => {
                                                     nombreTema={valTema.nombre}
                                                     idTema={valTema.idTema}
                                                     ListarTemasCurso={ListarTemasCurso}
+                                                    ListarrecursosCurso={ListarrecursosCurso}
                                                 />:null}
                                             </div>
                                             {Listarrecursos.map((valRecurso)=>{

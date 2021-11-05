@@ -43,6 +43,12 @@ import FormCrearRecurso from '../../components/opcionesCurso/FormCrearRecurso'
     //-------------------------------------------------------------------------------------------------------------//
     const [modalRecurso, setModalRecurso] = useState(false)
     const toggleRecurso = () => {setModalRecurso(!modalRecurso)}
+
+    useEffect(() => {
+        props.ListarrecursosCurso()
+        // console.log(modalTema);
+    }, [modalRecurso]) 
+
     const [file, setFile] = useState();
     const [fileName, setFileName] = useState("");
 
@@ -89,6 +95,7 @@ import FormCrearRecurso from '../../components/opcionesCurso/FormCrearRecurso'
                 tipo:'url',
                 vigencia:1              
                 })
+                toggleRecurso()
         } catch (error) {
             console.log(error.message);
             alert("Error al agregar");              
