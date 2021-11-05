@@ -72,11 +72,11 @@ const PagRecurso = (props) => {
                 active={isVisible} 
                 duration={null}
                 onTimeUpdate={capturaTiempo}
+                style={{display: 'none'}}
             >
                 <Timecode/>
             </Timer>
             <h1>{infoRecurso.nombre}</h1>
-            <h1>{localStorage.tiempo}</h1>
             <iframe 
                 width="560" 
                 height="315" 

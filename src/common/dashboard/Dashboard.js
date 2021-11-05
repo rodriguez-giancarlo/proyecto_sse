@@ -6,7 +6,7 @@ import Topbar from './topbar/Topbar'
 const Dashboard = () => {
     return (
         <div>
-            <input type="checkbox" id="nav-toggle" />
+            <input type="checkbox" id="nav-toggle"/>
             <Sidebar/>
             <div className="main-content">
                 <Topbar/>

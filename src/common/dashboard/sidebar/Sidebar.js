@@ -12,7 +12,8 @@ const Sidebar = () => {
                     <FcMenu/>
                 </label>
                 </span>
-                <span>Dashboard</span>
+                <span>SSE</span>
+                <small></small>
                 </h2>
             </div>
             <div className="sidebar__contenedor-menu">

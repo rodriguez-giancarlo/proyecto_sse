@@ -8,12 +8,21 @@ const TablaHistorial = ({togglehistorial,modalhistorial,listarRecurso,idRecurso}
             <tr>
                 <th>#</th>
                 <th>nombre</th>
-                <th>Nuermo de veces</th>
+                <th>Numero de veces</th>
                 <th>tiempo acumulado</th>
                 <th></th>
             </tr>
         );
     }
+    function secondsToString(seconds) {
+        var hour = Math.floor(seconds / 3600);
+        hour = (hour < 10)? '0' + hour : hour;
+        var minute = Math.floor((seconds / 60) % 60);
+        minute = (minute < 10)? '0' + minute : minute;
+        var second = seconds % 60;
+        second = (second < 10)? '0' + second : second;
+        return hour + ':' + minute + ':' + second;
+      }
     const celdas = () => {
         let numero = 0;
         return (
@@ -22,7 +31,7 @@ const TablaHistorial = ({togglehistorial,modalhistorial,listarRecurso,idRecurso}
                     <th><Image src={persona.urlFoto} roundedCircle width="35px" height="35px"/></th>
                     <td>{persona.nombre +" "+persona.apellido}</td>
                     <td>{persona.visto}</td>
-                    <td>{persona.TiempoAcumulado+ " seg"}</td>
+                    <td>{secondsToString(persona.TiempoAcumulado)+ "s"}</td>
                     <td>
                         <Link to={"/principal/historial/"+idRecurso+"/" + persona.idpersona}>
                         detalles

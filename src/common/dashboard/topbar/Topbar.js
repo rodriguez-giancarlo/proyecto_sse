@@ -2,6 +2,7 @@ import React from 'react'
 import { Dropdown } from 'react-bootstrap';
 import { FcMenu } from "react-icons/fc";
 import { withRouter } from 'react-router';
+import {Link, NavLink} from 'react-router-dom';
 const estilo = {margin: '0px'}
 
 const Topbar = (props) => {
@@ -24,7 +25,7 @@ const Topbar = (props) => {
                 <label htmlFor="nav-toggle" className="fcMenu" id="topbarmenu">
                     <span><FcMenu/></span>
                 </label>
-                SSE 
+                {/* SSE  */}
             </h2>
             
             <Dropdown>
@@ -39,7 +40,7 @@ const Topbar = (props) => {
             </Dropdown.Toggle>
             <Dropdown.Menu  className="center shadow-card">
                 <Dropdown.Item>
-                    Editar Perfil
+                    <Link to="/principal/perfil" exact >Editar Perfil</Link>
                 </Dropdown.Item>
                 <Dropdown.Item onClick={cerrarSesion}>
                     Cerrar sesión
