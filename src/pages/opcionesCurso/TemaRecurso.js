@@ -4,7 +4,8 @@ import BtnTemaRecurso from '../../components/opcionesCurso/BtnTemaRecurso'
 import FormEditarTema from '../../components/opcionesCurso/FormEditarTema'
 import FormCrearRecurso from '../../components/opcionesCurso/FormCrearRecurso'
 
-const TemaRecurso = (props) => {
+
+    const TemaRecurso = (props) => {
     //-------------------------------------------------------------------------------------------------------------//
     //                                                   tema
     //-------------------------------------------------------------------------------------------------------------//
@@ -16,6 +17,7 @@ const TemaRecurso = (props) => {
         idUnidad:props.idUnidad,
         vigencia:2
     });
+
     const handleChangeTema = (event) => {
         const target = event.target;
         const valor = target.value;
@@ -25,9 +27,9 @@ const TemaRecurso = (props) => {
             [nombre]: valor
         });
     }
+
     useEffect(() => {
         props.ListarTemasCurso()
-        console.log(modalTema);
     }, [modalTema]) 
 
     const EditarTema=()=>{
@@ -41,39 +43,80 @@ const TemaRecurso = (props) => {
     //-------------------------------------------------------------------------------------------------------------//
     const [modalRecurso, setModalRecurso] = useState(false)
     const toggleRecurso = () => {setModalRecurso(!modalRecurso)}
+    const [file, setFile] = useState();
+    const [fileName, setFileName] = useState("");
 
     const [recurso, setrecurso] = useState({
         nombre:'',
         fecha:'',
-        archivo:'',
+        file: '',
         idTema:props.idTema,
         estado:1,
         tipo:'url',
         vigencia:1
     });
-    const handleChangeRecurso = (event) => {
-        const target = event.target;
+
+    const handleChangeRecurso = (event) => {        
+        const target=event.target;
         const valor = target.value;
         const nombre = target.name;
-        console.log(valor);
+        if (nombre == 'file'){
+            // valor = event.target.files[0].name
+            setFile(event.target.files[0]);
+            setFileName(event.target.files[0].name);
+        }
         setrecurso({
             ...recurso,
-            [nombre]: valor
-        });
+            [nombre]: valor,
+        });                  
+        console.log(recurso)
+        console.log(file)
+        console.log(fileName)
     }
+
+    // const saveFile = (e) => {
+    //     setFile(e.target.files[0]);
+    //     setFileName(e.target.files[0].name);
+    // };
     const CrearRecurso= async ()=>{
-        try {
-            const nuevaRecurso= await axios.post('http://localhost:4000/recurso/save',recurso)
-            console.log(nuevaRecurso); 
-            console.log('crear Recurso');
-            console.log(recurso); 
+        try {            
+            await axios.post('http://localhost:4000/recurso/save',{
+                nombre:recurso.nombre,
+                fecha:recurso.fecha,
+                archivo: recurso.file,
+                idTema:props.idTema,
+                estado:1,
+                tipo:'url',
+                vigencia:1              
+                })
         } catch (error) {
             console.log(error.message);
-            alert("Error al agregar");  
+            alert("Error al agregar");              
         }
-       
     }
-   
+
+    const uploadFile = async (e) => {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("fileName", fileName);
+        console.log(file)
+        console.log(fileName)
+        try {
+            const res = await axios.post(
+            "http://localhost:4000/upload",
+            formData
+        );
+            console.log(res);
+        } catch (ex) {
+            console.log(ex);
+        }
+    };
+
+    const guardarTodo = () =>{
+        CrearRecurso();
+        uploadFile()
+    }
+
     return (
         <>
             <BtnTemaRecurso
@@ -91,7 +134,7 @@ const TemaRecurso = (props) => {
                 toggleRecurso={toggleRecurso}
                 modalRecurso={modalRecurso} 
                 onChange={handleChangeRecurso} 
-                onClick={CrearRecurso}
+                onClick={guardarTodo}
             />
         </>
     )

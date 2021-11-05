@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
 
-const FormCrearRecurso = (props) => {
-    const {modalRecurso,toggleRecurso,onChange,onClick,setSelectedFile}=props
-    // const [vigencia, setvigencia] = useState(2)
+const FormCrearRecurso = ({
+    modalRecurso, 
+    toggleRecurso, 
+    onChange,
+    onClick}) => {
     return (
         <>
             <Modal show={modalRecurso} onHide={toggleRecurso} centered>
@@ -11,73 +13,64 @@ const FormCrearRecurso = (props) => {
                     Crear Recurso
                 </Modal.Header>
                 <Modal.Body>                    
-                   <Form>
+                <Form>
                         <Form.Group>
-                            <Form.Label>Nombre del Recurso</Form.Label>
+                            <Form.Label>Nombre</Form.Label>
                             <Form.Control 
                                 type="text" 
                                 name='nombre'
-                                placeholder="Nombre del Recurso" 
+                                placeholder="Nombre" 
                                 autoComplete="off"
                                 onChange={onChange}
                             />
-                        </Form.Group>
-
-                        <Form.Group>
-                        <Form.Label>Fecha del Recurso</Form.Label>
+                        </Form.Group>                                                
+                        <Form.Group>   
+                        <Form.Label>Fecha</Form.Label>
                             <Form.Control 
                                 type="date" 
                                 name='fecha'
-                                placeholder="Nombre del Recurso" 
                                 autoComplete="off"
                                 onChange={onChange}
                             />
-                        </Form.Group>
-                        <Form.Group controlId="formFile" className="mb-3">
-                            <Form.Label>Sube un archivo</Form.Label>
-                            {/* <Form.Control 
-                                type="file" 
-                                name="archivo"
-                                onChange={(e) => setSelectedFile(e.target.files[0])}
-                            /> */}
-                            <Form.Control 
-                                type="url" 
-                                name='archivo'
-                                placeholder="url del Recurso" 
-                                autoComplete="off"
-                                onChange={onChange}
-                            />
-                        </Form.Group>
+                        </Form.Group>                        
                         <Form.Group style={{display: "flex",justifyContent:"space-around"}} >
-                        <Form.Label>Estado del recurso</Form.Label>
+                        <Form.Label>Estado</Form.Label>
                             <Form.Check 
                                 disabled
-                                label='habilitado'
+                                label='Habilitado'
                                 name="vigencia"
                                 value="2"
                                 type='radio'
                                 id='activo'
-                                // checked={vigencia==2?true:false}
+                                checked={true}
                                 onChange={onChange}
                             />
                             <Form.Check 
                                 disabled
-                                label='inhabilitado'
+                                label='Inhabilitado'
                                 name="vigencia"
                                 value="1"
                                 type='radio'
-                                id='inactivo'
-                                checked={true}
-                                // checked={vigencia==1?true:false}
+                                id='inactivo'                               
                                 onChange={onChange}
                             />
                         </Form.Group>
+                        <Form.Group controlId="formFile">                                    
+                            <Form.Label>Seleccione un archivo</Form.Label> 
+                            <div>
+                                <Form.Control 
+                                type="file" 
+                                name="file"
+                                onChange={onChange}
+                                />      
+                            </div>   
+                        </Form.Group>
+                        <Button  block className="celeste" onClick={onClick}> 
+                            Crear Recurso
+                        </Button>                        
                     </Form> 
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button block className="celeste" onClick={onClick} >
-                        Crear Recurso
-                    </Button>   
+                <Modal.Footer>                     
                 </Modal.Footer>
             </Modal>   
         </>
